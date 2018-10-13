@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducer';
+import { AppState } from '../income-egress.reducers';
 import { IncomeEgress } from '../income-egress.models';
 
 @Component({
@@ -9,7 +9,7 @@ import { IncomeEgress } from '../income-egress.models';
   templateUrl: './stadistic.component.html',
   styles: []
 })
-export class StadisticComponent implements OnInit {
+export class StadisticComponent implements OnInit, OnDestroy {
 
   public incomes: number;
   public egress: number;
@@ -48,5 +48,7 @@ export class StadisticComponent implements OnInit {
 
     this.doughnutChartData = [this.incomes, this.egress];
   }
-
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

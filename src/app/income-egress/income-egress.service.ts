@@ -3,7 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { IncomeEgress } from './income-egress.models';
 import { AuthService } from '../auth/auth.service';
 import { Store } from '@ngrx/store';
-import { AppState } from '../app.reducer';
+import { AppState } from './income-egress.reducers';
 import { filter, map } from 'rxjs/operators';
 import { SetItemsActions, UnsetItemsActions } from './income-egress.actions';
 import { Subscription } from 'rxjs';

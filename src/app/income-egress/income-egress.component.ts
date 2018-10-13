@@ -3,10 +3,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { IncomeEgress } from './income-egress.models';
 import { IncomeEgressService } from './income-egress.service';
 import Swal from 'sweetalert2';
-import { AppState } from '../app.reducer';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { ActivateLoadingAction, DesactivateLoadingAction } from '../shared/ui.actions';
+import { AppState } from './income-egress.reducers';
 
 @Component({
   selector: 'app-income-egress',

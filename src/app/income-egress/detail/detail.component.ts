@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducer';
 import { Subscription } from 'rxjs';
+import { AppState } from '../income-egress.reducers';
 import { IncomeEgress } from '../income-egress.models';
 import { IncomeEgressService } from '../income-egress.service';
 import Swal from 'sweetalert2';

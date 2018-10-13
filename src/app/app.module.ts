@@ -1,31 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Modules
 import { AppRoutingModule } from './app.routing.modules';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducers } from './app.reducer';
 import { ChartsModule } from 'ng2-charts';
 
+
+// Personal Module
+import { AuthModule } from './auth/auth.module';
+import { SharedModule } from './shared/shared.module';
+
 // Components
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { SigninComponent } from './auth/signin/signin.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { IncomeEgressComponent } from './income-egress/income-egress.component';
-import { StadisticComponent } from './income-egress/stadistic/stadistic.component';
-import { DetailComponent } from './income-egress/detail/detail.component';
-import { SortIncomeEgressPipe } from './income-egress/sort-income-egress.pipe';
-import { from } from 'rxjs';
+import { IncomeEgressModule } from './income-egress/income-egress.module';
+
 
 
 
@@ -33,26 +27,13 @@ import { from } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
-    SigninComponent,
-    DashboardComponent,
-    IncomeEgressComponent,
-    StadisticComponent,
-    DetailComponent,
-    FooterComponent,
-    NavbarComponent,
-    SidebarComponent,
-    SortIncomeEgressPipe
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule,
-    ChartsModule,
+    AuthModule,
     StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states

@@ -3,14 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SigninComponent } from './auth/signin/signin.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { dashboardRoutes } from './dashboard/dashboard.routes';
 import { AuthGuardService } from './auth/auth-guard.service';
 
 const routes: Routes = [
     { path: 'signin', component: SigninComponent },
     { path: 'register', component: RegisterComponent },
-    { path: '', component: DashboardComponent, children: dashboardRoutes, canActivate: [AuthGuardService] },
+    {
+        path: '',
+        loadChildren: './income-egress/income-egress.module#IncomeEgressModule',
+        canLoad: [AuthGuardService]
+    },
     { path: '**', redirectTo: '' }
 ];
 
