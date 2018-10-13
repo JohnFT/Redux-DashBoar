@@ -31,7 +31,7 @@ import { IncomeEgressModule } from './income-egress/income-egress.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase, 'redux-dashboard'),
     AngularFirestoreModule,
     AuthModule,
     StoreModule.forRoot(appReducers),
