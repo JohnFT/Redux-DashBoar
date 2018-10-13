@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Modules
 import { AppRoutingModule } from './app.routing.modules';
@@ -11,18 +11,21 @@ import { environment } from 'src/environments/environment';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducers } from './app.reducer';
+import { ChartsModule } from 'ng2-charts';
 
 // Components
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SigninSignupComponent } from './signin-signup/signin-signup.component';
-import { StadisticComponent } from './signin-signup/stadistic/stadistic.component';
-import { DetailComponent } from './signin-signup/detail/detail.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { IncomeEgressComponent } from './income-egress/income-egress.component';
+import { StadisticComponent } from './income-egress/stadistic/stadistic.component';
+import { DetailComponent } from './income-egress/detail/detail.component';
+import { SortIncomeEgressPipe } from './income-egress/sort-income-egress.pipe';
+import { from } from 'rxjs';
 
 
 
@@ -33,20 +36,23 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     RegisterComponent,
     SigninComponent,
     DashboardComponent,
-    SigninSignupComponent,
+    IncomeEgressComponent,
     StadisticComponent,
     DetailComponent,
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    SortIncomeEgressPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    ChartsModule,
     StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states

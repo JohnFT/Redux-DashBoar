@@ -1,10 +1,12 @@
 import { Routes } from '@angular/router';
-import { StadisticComponent } from '../signin-signup/stadistic/stadistic.component';
-import { SigninSignupComponent } from '../signin-signup/signin-signup.component';
-import { DetailComponent } from '../signin-signup/detail/detail.component';
+import { IncomeEgressComponent } from '../income-egress/income-egress.component';
+import { StadisticComponent } from '../income-egress/stadistic/stadistic.component';
+import { DetailComponent } from '../income-egress/detail/detail.component';
+
 
 export const dashboardRoutes: Routes = [
     { path: '', component: StadisticComponent },
-    { path: 'signin-signup', component: SigninSignupComponent },
+    { path: 'income-egress', component: IncomeEgressComponent },
     { path: 'detail', component: DetailComponent }
-]
+];
+
